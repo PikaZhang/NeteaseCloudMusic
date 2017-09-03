@@ -8,6 +8,7 @@ import Recruit from '@/components/Recruit'
 import Personalized from '@/components/Personalized'
 import Login from '@/components/Login'
 import AllRecommend from '@/components/AllRecommend'
+import Search from '@/components/Search'
 
 Vue.use(Router)
 
@@ -50,7 +51,10 @@ export default new Router({
             path: '/allRecommend',
             name: 'allRecommend',
             component: AllRecommend
-
+        }, {
+            path: '/search',
+            name: 'Search',
+            component: Search
         }
     ]
 })

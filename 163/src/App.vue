@@ -8,6 +8,7 @@
             <el-menu-item v-for="menu in mainMenu" :index="menu.path">
                 {{menu.name}}
             </el-menu-item>
+
             <ul class="loginWrap">
                 <li v-if="userInfo.id">
                     <router-link class="login" :to="{name: 'Login'}">{{userInfo.profile.nickname}}</router-link>
@@ -16,6 +17,14 @@
                     <router-link class="login" :to="{name: 'Login'}">登录</router-link>
                 </li>
             </ul>
+            <div class="searchWrap">
+                <!-- <el-input v-model="input" placeholder="请输入内容" icon='search' @click="searchIco"></el-input> -->
+                <input type="text" v-model='$store.state.input' class="form-control" placeholder="请输入内容">
+                <router-link class="searchIco" :to="{name: 'Search'}">
+                    <span class="glyphicon glyphicon-search " @click="searchClick"></span>
+                </router-link>
+
+            </div>
         </el-menu>
 
         <router-view></router-view>
@@ -48,13 +57,26 @@ export default {
                     name: '音乐人',
                     path: '/recruit'
                 }
-            ],
-
+            ]
         }
     },
     computed: {
-            userInfo() {
+        userInfo() {
             return this.$store.state.userInfo
+        }
+    },
+    methods: {
+        searchClick() {
+            this.$store.dispatch('search', this.$store.state.input)
+                .then(data => {
+                    if (this.$store.state.input == '') {
+                        return;
+                    } else {
+                        this.$store.commit('searchSong', data);
+                        sessionStorage.setItem('name', this.$store.state.input)
+                    }
+
+                });
         }
     }
 }
@@ -67,6 +89,12 @@ body {
 
 .el-menu--dark .el-menu-item {
     color: white;
+}
+
+.el-menu {
+    padding-left: 340px;
+
+    min-width: 1200px;
 }
 
 .logo {
@@ -89,14 +117,44 @@ body {
 
 .login {
     display: inline-block;
-    line-height: 60px;
+    line-height: 55px;
     color: #fff;
     text-decoration: none;
+    padding: 0 15px 5px;
+}
+
+.login:hover {
+    color: #fff;
     padding: 0 15px;
+    border-bottom: 5px solid #20a0ff;
+    text-decoration: none;
 }
 
 .loginWrap {
     float: right;
-    margin-right: 60px;
+    margin-right: 340px;
+}
+
+.searchWrap {
+    float: right;
+    width: 150px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.searchWrap input {
+    width: 150px;
+    padding-right: 34px;
+}
+
+.searchIco {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    top: 0;
+    right: 0;
+    font-size: 16px;
+    line-height: 34px;
+    text-align: center;
 }
 </style>

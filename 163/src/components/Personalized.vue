@@ -1,13 +1,12 @@
 <template>
-    <div class="mt20">
+    <div class="wrap">
 
-        <el-row :gutter="24">
+        <el-row >
             <el-col :span="16" :offset="4">
 
-                <el-card class="box-card" style="height: auto;">
-                    <div slot="header" class="clearfix">
-
-                        <div class="cover">
+               
+                   
+                        <div class="clearfix">          <div class="cover">
                             <img :src="playList.coverImgUrl">
                         </div>
                         <div class="detail">
@@ -29,9 +28,10 @@
                                 <el-tag type="gray" v-for='tag in playList.tags'>{{tag}}</el-tag>
                             </p>
                             <p>介绍:{{playList.description}}</p>
-                        </div>
+                        </div></div>
+              
 
-                    </div>
+                  
 
                     <el-tabs v-model="activeName" >
                         <el-tab-pane label="歌曲列表" name="list">
@@ -68,7 +68,7 @@
 
                     </el-tabs>
 
-                </el-card>
+                
 
             </el-col>
         </el-row>
@@ -157,6 +157,13 @@ export default {
 </script>
 
 <style>
+    .wrap {
+        width:1200px;
+        min-width:1200px;
+        margin:0 auto;
+        border-left:1px solid #ccc;
+         border-right:1px solid #ccc;
+    }
 .cover {
     float: left;
 }
@@ -168,7 +175,7 @@ export default {
 .detail {
     float: left;
     margin-left: 20px;
-    width: 700px;
+    width: 500px;
 }
 
 .detail h1 {

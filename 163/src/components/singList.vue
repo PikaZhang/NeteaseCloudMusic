@@ -33,7 +33,7 @@
         <el-row v-for='track,index in showList' class="singPage">
             <el-col :span="3">
                 <div>{{index+limitStart+1}}
-                    <span @click="playClick(track.id)" class="glyphicon glyphicon-play-circle singIcon"></span>
+                    <span @click="playClick(track.id)" class="glyphicon glyphicon-play-circle singIcon" :class="{nowPlay:musicUrlId==track.id}"></span>
                 </div>
             </el-col>
             <el-col :span="5">
@@ -68,7 +68,8 @@ export default {
     },
     data() {
         return {
-            musicUrl: ''
+            musicUrl: '',
+            musicUrlId:''
         }
     },
     computed: {
@@ -90,8 +91,8 @@ export default {
             })
                 .then(result => {
                     this.musicUrl = result.data[0].url;
+                    this.musicUrlId = result.data[0].id
                 })
-            console.log(this.musicUrl)
         }
     }
 }
@@ -119,6 +120,9 @@ export default {
 
 .singIcon {
     margin-left: 10px;
+}
+.nowPlay{
+    color:red;
 }
 </style>
 
