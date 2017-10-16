@@ -10,7 +10,7 @@
             <el-input id="password" placeholder="请输入密码" v-model="loginInfo.password">
             </el-input>
         </div>
-        <el-button @click="doLogin">登录</el-button>
+        <el-button @click="doLogin" >登录</el-button>
         <el-alert v-show="title" :title="title" :type="mytype">
         </el-alert>
     </div>
@@ -56,9 +56,12 @@ export default {
 }
 
 .userWrap {
-    width: 600px;
-    margin: 120px auto;
+    width: 1200px;
+    margin: 0 auto;
+    height:600px;
     text-align: center;
+    padding:240px 0 240px;
+    background-color:#fff;
 }
 
 label {
@@ -68,5 +71,8 @@ label {
 
 .passwordGroup {
     margin: 20px 0 10px 0;
+}
+.el-button{
+    margin-top:20px;
 }
 </style>

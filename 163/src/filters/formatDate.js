@@ -12,7 +12,7 @@ export default function(value, f) {
     str = str.replace('y', date.getFullYear());
     str = str.replace('m', date.getMonth() + 1);
     str = str.replace('d', date.getDate());
-    str = str.replace('H', date.getHours());
+    str = str.replace('H', toDB(date.getHours()));
     str = str.replace('i', toDB(date.getMinutes()));
     str = str.replace('s', toDB(date.getSeconds()));
 

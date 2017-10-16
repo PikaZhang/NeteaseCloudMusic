@@ -10,13 +10,16 @@ import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon'
 import store from './store'
 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import './assets/css/reset.css'
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
 Vue.component('icon', Icon)
+
 
 /* eslint-disable no-new */
 new Vue({
