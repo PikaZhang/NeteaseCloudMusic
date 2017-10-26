@@ -44,7 +44,7 @@ export default {
             newsongs: []
         }
     },
-    created() {
+    mounted() {
         fetch('/api/personalized').then(response => {
             return response.json();
         }).then(data => {

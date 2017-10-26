@@ -12,6 +12,13 @@ import Search from '@/components/Search'
 
 Vue.use(Router)
 
+import Promise from 'promise-polyfill';
+
+// To add to window  
+if (!window.Promise) {
+    window.Promise = Promise;
+}
+
 export default new Router({
     routes: [{
             path: '/',

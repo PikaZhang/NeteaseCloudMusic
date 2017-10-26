@@ -237,10 +237,7 @@ export default {
                 return;
             }
             var audio = this.$refs.audio;
-            var nowTime = this.$refs.nowTime;
             var progressBar = this.$refs.progressBar;
-            var now = this.$refs.now;
-            var nowPoint = this.$refs.nowPoint;
             var x = e.clientX;
             var rectX = progressBar.getBoundingClientRect().left;
             var offsetX = x - rectX;
@@ -657,7 +654,7 @@ export default {
 .musicListWrap {
     position: fixed;
     bottom: 46px;
-    left: 400px;
+    left: 800px;
     width: 560px;
     height: 300px;
     background: url('../assets/img/playlist_bg.png') repeat-y -1014px 0;
@@ -705,7 +702,7 @@ export default {
 }
 
 .musicList li {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0,1);
     height: 28px;
     width: 100%;
     color: #9b9b9b;

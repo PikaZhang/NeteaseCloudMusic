@@ -58,7 +58,7 @@ export default {
 .userWrap {
     width: 1200px;
     margin: 0 auto;
-    height:600px;
+    min-height:850px;
     text-align: center;
     padding:240px 0 240px;
     background-color:#fff;
